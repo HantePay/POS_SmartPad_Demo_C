@@ -1,6 +1,6 @@
 "# POS_SmartPad_Demo_C"  Sunmi SmartPad 接入Hante 收款 支持：信用卡,微信,支付宝
 原理:Sunmi SmartPad 作为 服务端 , Demo作为 客户端,使用Socket 交互
-使用步骤：
+使用步骤：<br/>
 第一步：导入: SocketUtils.cs文件 <br/>
 第二步：获取 SmartPad 服务端 IP + 端口号<br/>
 第三步: 使用 SocketUtils.cs 建立连接<br/>
