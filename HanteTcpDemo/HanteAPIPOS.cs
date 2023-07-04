@@ -4,7 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 
-public class SocketClient
+public class HanteAPIPOS
 {
     private const int bufferSize = 1024;
     private byte[] buffer = new byte[bufferSize];

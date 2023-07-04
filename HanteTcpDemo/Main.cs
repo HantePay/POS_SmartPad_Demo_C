@@ -4,7 +4,7 @@ using System.Net.NetworkInformation;
 using System.Net;
 using System.Threading;
 using System.Windows.Forms;
-using static SocketClient;
+using static HanteAPIPOS;
 using System.Collections.Generic;
 
 namespace HanteTcpDemo
@@ -17,7 +17,7 @@ namespace HanteTcpDemo
         string token="";
         string merchantNo = "";
 
-        SocketClient socketHelper;
+        HanteAPIPOS socketHelper;
 
         string localIp = "";
 
@@ -97,7 +97,7 @@ namespace HanteTcpDemo
 
             // 获取TextBox的内容 device_sn_inp.Text
             string urlPath = "http://test.hantepay.cn/route/v2.0.0/machine/info?machineCode=" + deviceSN + "&type=short";
-            string response = HantePOSAPI.SendGetRequest(urlPath);
+            string response = HttpUtils.SendGetRequest(urlPath);
            
             // 解析JSON字符串
             DeciveResponse deciveResponse = JsonConvert.DeserializeObject<DeciveResponse>(response);
@@ -141,7 +141,7 @@ namespace HanteTcpDemo
         {
             LoadingDialogUtils.ShowLoadingDialog("Loading"); // 显示加载对话框
 
-            socketHelper = new SocketClient();
+            socketHelper = new HanteAPIPOS();
 
             socketHelper.Connect(ip_inp.Text, 10010, ConnectedSuccess, ConnectedFail, POSHeartbeat, POSReceiveMessages);
         }

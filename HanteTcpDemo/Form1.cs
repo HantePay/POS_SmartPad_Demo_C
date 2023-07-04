@@ -18,7 +18,7 @@ namespace HanteTcpDemo
 {
     public partial class Form1 : Form
     {
-        SocketClient socketHelper;
+        HanteAPIPOS socketHelper;
 
         public Form1()
         {
@@ -42,7 +42,7 @@ namespace HanteTcpDemo
         {
             // 获取TextBox的内容 device_sn_inp.Text
             string urlPath = "http://test.hantepay.cn/route/v2.0.0/machine/info?machineCode="+device_sn_inp.Text+ "&type=short";  
-            string response = HantePOSAPI.SendGetRequest(urlPath);
+            string response = HttpUtils.SendGetRequest(urlPath);
             responseTv.Text = response;
             // 解析JSON字符串
             DeciveResponse deciveResponse = JsonConvert.DeserializeObject<DeciveResponse>(response);
@@ -58,7 +58,7 @@ namespace HanteTcpDemo
 
             LoadingDialogUtils.ShowLoadingDialog("Loading"); // 显示加载对话框
 
-            socketHelper = new SocketClient();
+            socketHelper = new HanteAPIPOS();
 
             socketHelper.Connect(ip_inp.Text, 10010, ConnectedSuccess, ConnectedFail, POSHeartbeat, POSReceiveMessages);
        
