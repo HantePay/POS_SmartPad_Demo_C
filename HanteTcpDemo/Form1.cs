@@ -42,7 +42,7 @@ namespace HanteTcpDemo
         {
             // 获取TextBox的内容 device_sn_inp.Text
             string urlPath = "http://test.hantepay.cn/route/v2.0.0/machine/info?machineCode="+device_sn_inp.Text+ "&type=short";  
-            string response = HttpUtils.HttpHelper.SendGetRequest(urlPath);
+            string response = HantePOSAPI.SendGetRequest(urlPath);
             responseTv.Text = response;
             // 解析JSON字符串
             DeciveResponse deciveResponse = JsonConvert.DeserializeObject<DeciveResponse>(response);

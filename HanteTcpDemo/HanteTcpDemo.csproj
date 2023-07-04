@@ -94,7 +94,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="HttpServer.cs" />
-    <Compile Include="HttpUtils.cs" />
+    <Compile Include="HantePOSAPI.cs" />
     <Compile Include="LoadingDialogUtils.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
